@@ -20,4 +20,4 @@ print('vlans is', vlans.split(','))
 '''
 
 str1 = config.split()
-print(str1[4])
+print(str1[4].split(','))

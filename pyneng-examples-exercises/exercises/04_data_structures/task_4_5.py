@@ -18,6 +18,7 @@ command2 = 'switchport trunk allowed vlan 1,3,8,9'
 vlans1 = command1.split()
 vlans2 = command2.split()
 
+'''
 str1 = vlans1[4]
 str2 = vlans2[4]
 
@@ -28,5 +29,12 @@ set1 = set(split1)
 set2 = set(split2)
 
 result = sorted(set1&set2)
+'''
+
+#оно же:
+set1 = set(vlans1[4].split(','))
+set2 = set(vlans2[4].split(','))
+result = sorted(set1&set2)
 
 print(result)
+
