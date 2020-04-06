@@ -43,3 +43,14 @@ london_co = {
         'routing': True
     }
 }
+
+
+name = input('Введите имя устройства: ')
+val = list(london_co[name].keys()) #тут подставляем name и берем из словаря ключи. 
+#Преобразовываем в list, чтобы формат был списком, а не ссылкой в формате dict_keys(['location'.... 
+
+var = input(('Введите имя параметра:{} ').format(val))
+
+print((london_co[name]).get(str(var).lower(), 'Ты что поехавший?')) #str(var).lower() - строку надо делать, т.к к списку нельзя применить метод lower
+
+
