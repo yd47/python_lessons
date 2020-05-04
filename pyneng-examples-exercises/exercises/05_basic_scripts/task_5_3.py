@@ -45,6 +45,11 @@ switchport mode trunk
 switchport trunk allowed vlan 2,3,4,5
 '''
 
+mode = input('Введите режим работы интерфейса (access/trunk): ')
+ifn = input('Введите тип и номер интерфейса: ')
+vl = input('Введите номер влан(ов): ')
+
+
 access_template = [
     'switchport mode access', 'switchport access vlan {}',
     'switchport nonegotiate', 'spanning-tree portfast',
@@ -55,3 +60,31 @@ trunk_template = [
     'switchport trunk encapsulation dot1q', 'switchport mode trunk',
     'switchport trunk allowed vlan {}'
 ]
+
+#приходится делать конвеер: сперва собираем список с помощью \n , затем, преобразуем это в строку 
+#уже строке передаем переменную в .format
+
+acctmp = ((str('\n'.join(access_template))).format(vl))
+trtmp = ((str('\n'.join(trunk_template))).format(vl))
+
+#затем делаем словарик
+dict = dict([('access', acctmp),('trunk', trtmp)])
+
+
+print('interface {}'.format(ifn))
+print(dict[mode])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
